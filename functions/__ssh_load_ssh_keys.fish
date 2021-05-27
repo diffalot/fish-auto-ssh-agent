@@ -1,4 +1,4 @@
-function __ssh_load_ssh_keys.fish
+function __ssh_load_ssh_keys -d "load ssh keys"
     set added_keys (ssh-add -l)
     for key in (find ~/.ssh/ -not -name "*.pub" -a -iname "*ed25519")
         set sign (ssh-keygen -lf $key |awk '{print $2}')
